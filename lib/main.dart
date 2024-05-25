@@ -12,9 +12,14 @@ class XylophoneApp extends StatelessWidget {
 
   Widget buildKey(int soundNumber, Color background) {
     return Expanded(
-      child: TextButton(
+      child: FilledButton(
         style: ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll(background),
+          backgroundColor: WidgetStatePropertyAll<Color>(background),
+          shape: const WidgetStatePropertyAll<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            )
+          ),
         ),
         onPressed: () async {
           await playSound(soundNumber);
